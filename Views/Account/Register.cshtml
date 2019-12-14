@@ -1,0 +1,27 @@
+@model Sistema_ventas_autos.ViewModels.RegistroViewModel
+
+<h1>Formulario de registro de cuenta</h1>
+
+<form asp-action="register" method="post">
+
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        Nombre de usuario: <input class="form-control" asp-for="Usuario">
+    </div>
+
+    <div class="form-group">
+        Email: <input class="form-control" asp-for="Email">
+    </div>
+
+    <div class="form-group">
+        Password: <input class="form-control" asp-for="Password">
+    </div>
+
+    <div class="form-group">
+        Confirmar contraseña: <input class="form-control" asp-for="PasswordConfirmacion">
+    </div>
+
+    <button class="btn btn-primary">Crear cuenta</button>
+
+</form>

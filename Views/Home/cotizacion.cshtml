@@ -1,0 +1,89 @@
+@model List<Autos>
+<script>
+  function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+}
+</script>
+<h1>Realizar cotización</h1><br>
+  <form asp-controller="Home" asp-action="cotizacion2">
+    <label>Cliente DNI</label>
+    <input name="DNI" maxlength="8" required onkeypress='return validaNumericos(event)'>
+    <br>
+    <label>Cantidad</label>
+    <input name="cantidad" maxlength="2" required onkeypress='return validaNumericos(event)'>
+    <br>
+    <label>Código Auto</label>
+    <input name="id" required maxlength="17">
+    <br>
+    <button type="submit" class="btn btn-primary">Generar cotización</button>
+  </form>
+<br><br>
+<h2>Buscar autos</h2>
+<form class="container" asp-controller="Home" asp-controller="Index">
+  <div class="form-group">
+    <br>
+    <input class="form-control" aria-describedby="emailHelp" placeholder="Ingresar marca" name="marca"> 
+  </div>
+  <div class="form-group">
+    <br>
+    <input class="form-control" aria-describedby="emailHelp" placeholder="Ingresar modelo" name="modelo">
+  </div>
+  <label>Color:</label>
+    <select name="color">
+      <option class="dropdown-item" value=""></option>
+      <option class="dropdown-item" value="Rojo">Rojo</option>
+      <option class="dropdown-item" value="Amarillo">Amarillo</option>
+      <option class="dropdown-item" value="Azul">Azul</option>
+      <option class="dropdown-item" value="Negro">Negro</option>
+      <option class="dropdown-item" value="Blanco">Blanco</option>
+    </select>
+<br><br>
+  <button type="submit" class="btn btn-primary">Buscar autos</button>
+</form>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Código Auto</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Año</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Precio($)</th>
+      <th scope="col">Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model){
+      <tr>
+        <td>
+          @Html.DisplayFor(modelItem => item.codauto)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.marca)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.modelo)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.anho)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.color_auto)
+        </td>
+
+      </tr>
+    }
+  </tbody>
+</table>
+</div>

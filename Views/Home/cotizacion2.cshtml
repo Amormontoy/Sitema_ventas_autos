@@ -1,0 +1,12 @@
+@model Sistema_ventas_autos.Models.Dto.Cotizacion;
+<h1>Cotización</h1><br>
+<label>DNI: </label><h1>@Model.codclientes</h1>
+<label>Nombre: </label><h1>@Model.nombre</h1>
+<label>Modelo del Auto:</label><h3>@Model.modelo</h3>
+<label>Marca del Auto: </label><h3>@Model.marca</h3>
+<label>Color de Auto:</label><h3>@Model.color</h3>
+<label>Precio: </label><h3>@Model.precio</h3>
+<br>
+<form asp-controller="Home" asp-action="pdf">
+    <input type="button" value="Generar PDF">
+</form>

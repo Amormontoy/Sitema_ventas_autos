@@ -1,0 +1,65 @@
+@model IEnumerable<Sistema_Venta_Autos.Models.Clientes>
+<style>
+  #titulo{
+    margin-right: 1500px; 
+  }
+  #form_eli{
+    margin-right: 1500px; 
+  }
+
+</style>
+<script>
+  function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+}
+</script>
+<h1 id="titulo">Eliminar Cliente</h1>
+<form id="form_eli" asp-controller="Cliente" asp-action="cliente_eliminar">
+  <div class="form-group">
+    <input onfocus="this.value=''" value="Ingrese el DNI del cliente a borrar..." name="DNI" class="form-control" aria-describedby="emailHelp" required onkeypress='return validaNumericos(event)'>
+  </div>
+  <button type="submit" class="btn btn-primary">Eliminar</button>
+</form>
+<br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">DNI</th>
+      <th scope="col">Apellido Materno</th>
+      <th scope="col">Apellido Paterno</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Email</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model){
+      <tr>
+        <td>
+          @Html.DisplayFor(modelItem => item.codclientes)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.apemat_cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.apepat_cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.nom1cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.telfmovil_cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.email_cli)
+        </td>
+        
+      </tr>
+    }
+  </tbody>
+</table>

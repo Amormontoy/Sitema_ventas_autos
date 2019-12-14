@@ -1,0 +1,68 @@
+@model IEnumerable<Sistema_Venta_Autos.Models.Autos>
+<h1>Autos</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Código Auto</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Año</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Cilindrada</th>
+      <th scope="col">Precio($)</th>
+      <th scope="col">Peso Bruto(Kg.)</th>
+      <th scope="col">Altura(m)</th>
+      <th scope="col">Ancho(m)</th>
+      <th scope="col">Largo(m)</th>
+      <th scope="col">Capacidad</th>
+      <th scope="col">Color</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model){
+      <tr>
+        <td>
+          @Html.DisplayFor(modelItem => item.codauto)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.marca)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.modelo)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.anho)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.cilindrada)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.pesobruto)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.altura)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.ancho)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.largo)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.capacidadpers)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.color_auto)
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>  

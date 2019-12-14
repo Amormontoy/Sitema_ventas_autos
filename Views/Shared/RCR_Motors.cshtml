@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RCR Motors</title>
+	<link rel="shortcut icon" href="~/images/logo2.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        center{
+            margin-top: 80px;  
+            font-family: "Open Sans";     
+        }
+        
+        body{
+            font-family: "Open Sans";
+            }
+		nav{
+        font-family: "Open Sans";
+		position:fixed;
+		height: 100px;
+        }
+		footer{
+			background-color: #4E5158;
+			padding: 100px;
+		}
+		a{	
+			color:white;
+			text-decoration: none;
+		}
+		a:hover{
+			color:black;
+		}
+		#login{
+			float: right;
+		}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm" style="background-color: #4E5158;"> 
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="~/Home/Index"><img src="~/images/logo2.png" width="37px" height="37px"></a>
+	  @if (Context.User.Identity.IsAuthenticated) {
+      <a class="nav-item nav-link" href="~/Home/cotizacion">Realizar Cotización</a>
+      <a class="nav-item nav-link" href="#"></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Venta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="~/Ventas/venta">Realizar venta</a>
+          <a class="dropdown-item" href="~/Ventas/historial_ventas">Historial Ventas</a>
+      </li>
+      <a class="nav-item nav-link" href="#"></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Clientes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="~/Cliente/cliente_agregar">Agregar</a>
+          <a class="dropdown-item" href="~/Cliente/cliente_revisar">Revisar</a>
+          <a class="dropdown-item" href="~/Cliente/cliente_eliminar">Eliminar</a>
+      </li>
+      <a class="nav-item nav-link" href="#"></a>
+	  }
+	  <a class="nav-item nav-link" href="#"></a>
+      <a class="nav-item nav-link" href="~/Home/autos">Revisar Autos</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      @if (Context.User.Identity.IsAuthenticated) {
+        <li id="login" class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Cerrar sesión (@User.Identity.Name)</a>
+        </li>
+       }else{
+    	<li id="login" class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register"><span class="glyphicon glyphicon-user"></span> Crear cuenta</a></li>
+        <li id="login" class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+       }
+      </div>
+    </div>
+    </nav>
+ <center>   
+ <main>@RenderBody()</main>  
+ </center> 
+
+<footer class="footer-distributed">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+
+        	<img src="~/images/logo.png" width="199px" height="92px"/>
+				<p class="footer-links">
+					<a href="~/Home/Index">Home</a>
+					·
+					<a href="#">Blog</a>
+					·
+					<a href="~/Home/autos">Precios</a>
+					·
+					<a href="#">Acerca de</a>
+					·
+					<a href="#">Contacto</a>
+				</p>
+
+				<p>RCR Motors &copy; 2019</p>
+			</div>
+
+			<div class="col-sm-12 col-md-4" >
+
+				<div>
+					<i ></i>
+					<p><span>Av. la Fontana 250, La Molina</span> Lima, Perú</p>
+				</div>
+
+				<div>
+					<i></i>
+					<p>+51 999 999 999</p>
+				</div>
+
+				<div>
+					<i></i>
+					<p><a href="mailto:rcr-motors@company.com">rcr-motors@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="col-sm-12 col-md-4">
+
+				<p >
+					<span>Acerca de la compañia</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div >
+
+					<a href="#"><i class="fa fa-facebook"><img src="~/images/face.png" width="35px" height="35px"></i></a>
+					<a href="#"><i class="fa fa-twitter"><img src="~/images/twitter.png" width="30px" height="30px"></i></a>
+					<a href="https://proyprog2019-2-rcr.herokuapp.com/"><i class="fa fa-heroku"><img src="~/images/heroku.png" width="33px" height="30px"></i></a>
+					<a href="https://dev.azure.com/aaronmormontoy/programacion01"><i class="fa fa-azure"><img src="~/images/azure.png" width="30px" height="27px"></i></a>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</footer>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

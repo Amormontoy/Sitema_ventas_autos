@@ -1,0 +1,32 @@
+@model List<Sistema_Venta_Autos.Models.tiendas>
+<script>
+  function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+}
+</script>
+<h1>Realizar Venta</h1><br>
+<form class="container" asp-controller="Ventas" asp-action="comprobante">
+  <label>Tienda: </label>
+   <select name="tienda">    
+      @foreach (var item in Model){
+        <option value="@item.codtiendas">@item.desctiendas</option>           
+      }     
+    </select>
+<div class="form-group"><br>
+    <label for="exampleInputEmail1">Cliente DNI</label>
+    <input name="cliente" class="form-control" aria-describedby="emailHelp" required maxlength="8" onkeypress='return validaNumericos(event)'>
+  </div>
+<div class="form-group">
+    <label for="exampleInputEmail1">Código de Auto</label>
+    <input name="codAuto" class="form-control" aria-describedby="emailHelp" required maxlength="17">
+  </div>
+<div class="form-group">
+    <label for="exampleInputEmail1">Moneda</label>
+    <input name="moneda" class="form-control" aria-describedby="emailHelp" required>
+</div>    
+  <button type="submit" class="btn btn-primary">Generar Comprobante</button>
+</form>
+<br>

@@ -1,0 +1,53 @@
+
+@model IEnumerable<Sistema_Venta_Autos.Models.Clientes>
+<h1>Clientes de RCR Motors</h1>
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">DNI</th>
+        <th scope="col">Apellido paterno</th>
+        <th scope="col">Apellido materno</th>
+        <th scope="col">Primer Nombre</th>
+        <th scope="col">Segundo Nombre</th>
+        <th scope="col">Telefono Movil</th>
+        <th scope="col">Email</th>
+        <th scope="col">tipo de cliente</th>
+        <th scope="col">tipo de moneda</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model){
+      <tr>
+        <td>
+          @Html.DisplayFor(modelItem => item.codclientes)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.apepat_cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.apemat_cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.nom1cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.nom2cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.telfmovil_cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.email_cli)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.tipoclientes)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.tipomoneda)
+        </td>
+
+      </tr>
+    }
+  </tbody>
+</table>
+<br><br><br><br><br><br><br><br><br>

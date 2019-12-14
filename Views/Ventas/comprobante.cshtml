@@ -1,0 +1,33 @@
+@model Sistema_ventas_autos.Models.Dto.Compro_Venta;
+
+<h1>Comprobante</h1><br>
+<form asp-controller="Ventas" asp-action="comprobanteeee">
+    <label>N° Comprobante:</label>
+    <input name="codCompro" value=@Model.codcomprobante class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Tienda:</label>
+    <input name="codTienda" value=@Model.tienda_codtienda class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Vendedor:</label>
+    <input name="codven" value=@Model.vendedor_codven class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Cliente:</label>
+    <input name="codCli" value=@Model.clientes_codclientes class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Código de auto:</label>
+    <input name="codauto" value=@Model.autos_codautos class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Moneda:</label>
+    <input name="tip" value=@Model.tipomoneda class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Marca :</label>
+    <input name="marca" value=@Model.marca class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Modelo :</label>
+    <input name="modelo" value=@Model.modelo class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Precio :</label>
+    <input name="precio" value=@Model.precio class="form-control" aria-describedby="emailHelp" required readonly><br>
+    <label>Fecha :</label>
+    <input name="fecha" value=@Model.fecha class="form-control" aria-describedby="emailHelp" required readonly><br>
+
+    <select name="TipComp">    
+         
+        <option value="BE">Boleta Electronica</option> 
+        <option value="FE">Factura Electronica</option> 
+    
+    </select><br>
+    <input type="submit" value="Confirmar venta">
+</form>

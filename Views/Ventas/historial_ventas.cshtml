@@ -1,0 +1,36 @@
+@model List<clienteRcs>
+<h1>Ventas realizadas en RCR Motors</h1>
+<table class="table">
+  <thead>
+    <tr>
+     <th scope="col">DNI</th>
+      <th scope="col">Primer Nombre</th>
+      <th scope="col">Apellido paterno</th>
+      <th scope="col">Apellido materno</th>
+      <th scope="col">Auto</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model){
+      <tr>
+        <td>
+          @Html.DisplayFor(modelItem => item.codclientes)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.apePat)
+        </td>
+        <td>
+          @Html.DisplayFor(modelItem => item.apeMat)
+        </td>      
+         <td>
+          @Html.DisplayFor(modelItem => item.auto)
+        </td>
+
+      </tr>
+    }
+  </tbody>
+</table>

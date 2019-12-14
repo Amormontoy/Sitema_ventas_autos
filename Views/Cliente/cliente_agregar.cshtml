@@ -1,0 +1,77 @@
+@model Sistema_Venta_Autos.Models.Clientes;
+<script>
+  function ClearFields() {
+
+    document.getElementById("codclientes").value = "";
+    document.getElementById("apepat_cli").value = "";
+    document.getElementById("apemat_cli").value = "";
+    document.getElementById("nom1cli").value = "";
+    document.getElementById("nom2cli").value = "";
+    document.getElementById("telfmovil_cli").value = "";
+    document.getElementById("email_cli").value = "";
+    document.getElementById("tipomoneda").value = "";
+}
+
+function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+}
+</script>
+<h1>Agregar Nuevo Cliente</h1><br>
+<form class="container" asp-controller="Cliente" asp-action="cliente_agregar">
+  <div class="form-group">
+    <label>DNI</label>
+    <input id="codclientes" class="form-control" aria-describedby="emailHelp" asp-for="codclientes" onkeypress='return validaNumericos(event)' maxlength="8">
+    <span asp-validation-for="codclientes" class="text-danger"></span>
+  </div>
+<div class="form-group">
+    <label>Apellido Paterno</label>
+    <input id="apepat_cli" class="form-control" aria-describedby="emailHelp" asp-for="apepat_cli" maxlength="20">
+    <span asp-validation-for="apepat_cli" class="text-danger"></span>
+  </div>
+
+<div class="form-group">
+    <label>Apellido Materno</label>
+    <input id="apemat_cli" class="form-control" aria-describedby="emailHelp" asp-for="apemat_cli" maxlength="20">
+    <span asp-validation-for="apemat_cli" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label>Primer Nombre</label>
+    <input id="nom1cli" class="form-control" aria-describedby="emailHelp" asp-for="nom1cli" maxlength="20">
+    <span asp-validation-for="nom1cli" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label>Segundo Nombre</label>
+    <input id="nom2cli" class="form-control" aria-describedby="emailHelp" asp-for="nom2cli" maxlength="20">
+  </div>
+  <div class="form-group">
+    <label>Teléfono Celular</label>
+    <input id="telfmovil_cli" class="form-control" aria-describedby="emailHelp" asp-for="telfmovil_cli" onkeypress='return validaNumericos(event)' maxlength="15">
+    <span asp-validation-for="telfmovil_cli" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label>Correo</label>
+    <input type="email" id="email_cli" class="form-control" aria-describedby="emailHelp" asp-for="email_cli">
+    <span asp-validation-for="email_cli" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label>Moneda</label>
+    <input id="tipomoneda" class="form-control" aria-describedby="emailHelp" asp-for="tipomoneda" maxlength="15">
+    <span asp-validation-for="tipomoneda" class="text-danger"></span>
+  </div>
+   <div class="form-group">
+    <label>Tipo de Cliente</label>
+    <select class="form-control" asp-for="tipoclientes">
+      <option value="T">Tarjeta</option>
+      <option value="E">Efectivo</option>
+      <option value="C">Concesionario</option>
+      <option value="M">Multiopción</option>
+    </select>
+  </div>  
+  <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+</form>
+<script>
+  ClearFields();
+</script>
